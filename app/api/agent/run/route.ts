@@ -30,7 +30,7 @@ export async function POST(request: Request): Promise<Response> {
 
     const logger = new NotionActivityLogger({
       token: process.env.NOTION_TOKEN,
-      databaseId: process.env.NOTION_ACTIVITY_LOG_DATABASE_ID,
+      dataSourceId: process.env.NOTION_ACTIVITY_LOG_DATA_SOURCE_ID,
     });
 
     const result = await runAgentRequest(agentRequest, registry, logger);
