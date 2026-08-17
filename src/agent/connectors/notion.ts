@@ -2,7 +2,7 @@ import type { AgentConnector } from "./connector";
 import type { AgentRequest, AgentResult } from "../types";
 
 const NOTION_BASE_URL = "https://api.notion.com/v1";
-const NOTION_VERSION = "2022-06-28";
+const NOTION_VERSION = "2026-03-11";
 
 type FetchLike = typeof fetch;
 
