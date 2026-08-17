@@ -4,13 +4,13 @@ import { POST } from "../../app/api/agent/run/route";
 afterEach(() => {
   vi.unstubAllGlobals();
   delete process.env.NOTION_TOKEN;
-  delete process.env.NOTION_ACTIVITY_LOG_DATABASE_ID;
+  delete process.env.NOTION_ACTIVITY_LOG_DATA_SOURCE_ID;
 });
 
 describe("POST /api/agent/run", () => {
   it("returns 200 with verified evidence for a valid Notion read", async () => {
     process.env.NOTION_TOKEN = "test-token";
-    process.env.NOTION_ACTIVITY_LOG_DATABASE_ID = "activity-db";
+    process.env.NOTION_ACTIVITY_LOG_DATA_SOURCE_ID = "activity-data-source";
 
     const fetchImpl = vi
       .fn<typeof fetch>()
@@ -53,7 +53,7 @@ describe("POST /api/agent/run", () => {
 
   it("returns 202 and does not PATCH when approval is missing", async () => {
     process.env.NOTION_TOKEN = "test-token";
-    process.env.NOTION_ACTIVITY_LOG_DATABASE_ID = "activity-db";
+    process.env.NOTION_ACTIVITY_LOG_DATA_SOURCE_ID = "activity-data-source";
     const fetchImpl = vi.fn<typeof fetch>().mockResolvedValue(
       new Response(JSON.stringify({ id: "log-123" }), { status: 200 }),
     );
