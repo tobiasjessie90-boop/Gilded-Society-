@@ -5,6 +5,7 @@ const approvalTerms = [
   "send",
   "delete",
   "price",
+  "update",
   "overwrite",
   "schema",
   "permission",
