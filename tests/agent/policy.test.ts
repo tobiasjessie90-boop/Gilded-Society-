@@ -5,6 +5,10 @@ it("requires approval for publishing", () => {
   expect(requiresApproval("listing.publish")).toBe(true);
 });
 
+it("requires approval for product updates", () => {
+  expect(requiresApproval("product.update")).toBe(true);
+});
+
 it("allows read actions without approval", () => {
   expect(requiresApproval("product.read")).toBe(false);
 });
@@ -12,7 +16,7 @@ it("allows read actions without approval", () => {
 it("returns pending approval when required and absent", () => {
   const result = evaluateApproval({
     requestId: "r1",
-    action: "listing.publish",
+    action: "product.update",
     service: "notion",
     input: {},
     requestedBy: "jessie",
